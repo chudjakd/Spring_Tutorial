@@ -11,7 +11,11 @@ public class Movie {
     private Long id;
 
     private String name;
+
     @ManyToMany
+    @JoinTable(name = "Director_Movie",
+            joinColumns = @JoinColumn(name ="movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id") )
     Set<Director> directors= new HashSet<>();
 
     public Movie() {

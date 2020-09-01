@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 import sk.dejvo.springtutorial.services.HelloWorldService;
 @Service
 @Primary
-@Profile({"sk","eng"})
-public class HelloWorldSlovakia implements HelloWorldService {
+@Profile("primary")
+public class HelloWorldPrimary implements HelloWorldService {
     @Override
     public void sayHelloWorld() {
-        System.out.println("Ahoj, Pane");
+        System.out.println("Je to outik tento soutik");
     }
 }

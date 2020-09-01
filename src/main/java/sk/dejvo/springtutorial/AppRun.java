@@ -6,8 +6,10 @@ import sk.dejvo.springtutorial.services.MovieService;
 
 @Component
 public class AppRun {
+
     @Autowired
     MovieService movieService;
+
     public void run(){
         movieService.createAndAddMovie();
     }

@@ -6,4 +6,5 @@ import sk.dejvo.springtutorial.model.Movie;
 public interface MovieService {
 
     Movie createAndAddMovie();
+
 }

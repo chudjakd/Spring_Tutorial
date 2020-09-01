@@ -1,4 +1,4 @@
-package sk.dejvo.springtutorial.repositories.implementacia;
+package sk.dejvo.springtutorial.services.implementacia;
 
 import org.springframework.stereotype.Service;
 import sk.dejvo.springtutorial.model.Movie;

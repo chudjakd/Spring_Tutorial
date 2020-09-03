@@ -19,4 +19,5 @@ public class MovieController {
     model.addAttribute("movies",movieRepository.findAll());
     return "movies";
     }
+
 }

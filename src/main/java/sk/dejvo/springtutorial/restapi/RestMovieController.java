@@ -2,34 +2,22 @@ package sk.dejvo.springtutorial.restapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.Links;
 import org.springframework.web.bind.annotation.*;
-import sk.dejvo.springtutorial.model.Movie;
 import sk.dejvo.springtutorial.modeldto.MovieDTO;
-import sk.dejvo.springtutorial.repositories.MovieRepository;
 import sk.dejvo.springtutorial.services.MovieService;
 
 import java.util.List;
 
-import static org.springframework.hateoas.server.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.ControllerLinkBuilder.methodOn;
+
 
 @RestController
 @RequestMapping("/api")
 public class RestMovieController {
 
     @Autowired
-    MovieRepository movieRepository;
-    @Autowired
     MovieService movieService;
     @Autowired
     MovieResourceAssembler movieResourceAssembler;
-
-//    public RestMovieController(MovieRepository movieRepository) {
-//        this.movieRepository = movieRepository;
-//    }
-
-
 
     @GetMapping("/movies")
     List<MovieDTO> getMovies(@RequestParam(required = false) String name,@RequestParam(required = false) String surname){
@@ -50,6 +38,7 @@ public class RestMovieController {
         MovieDTO movieDTO= movieService.getMovieById(movieId);
         return movieResourceAssembler.toModel(movieDTO);
     }
+
     @PostMapping("/movies")
     MovieDTO addMovie(@RequestBody MovieDTO moviedto){
         return movieService.addMovie(moviedto);
@@ -59,6 +48,7 @@ public class RestMovieController {
     MovieDTO updateMovie(@RequestBody MovieDTO moviedto,@PathVariable("id") Long movieId){
         return movieService.updateMovie(moviedto,movieId);
     }
+
     @DeleteMapping("movies/{id}")
     void deleteMovieById(@PathVariable("id") Long movieId){
         movieService.deleteMovieByID(movieId);

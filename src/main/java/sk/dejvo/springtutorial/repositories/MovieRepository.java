@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie,Long> {
     List<Movie> findByName(String name);    // o implementaciu sa stara spring
+
+    List<Movie> findBySurname(String surname);
 }

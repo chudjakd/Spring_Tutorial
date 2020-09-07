@@ -36,6 +36,7 @@ public class MovieServiceImplementacia implements MovieService {
 
         Movie movie= new Movie();
         movie.setName("Jazda");
+        movie.setSurname("Jazovic");
 
         return movieRepository.save(movie);
     }
@@ -44,6 +45,7 @@ public class MovieServiceImplementacia implements MovieService {
     public Movie createFilmWithName() {
         Movie movie= new Movie();
         movie.setName("Eldorado");
+        movie.setSurname("Eldo");
 
         return movieRepository.save(movie);
     }
@@ -91,5 +93,13 @@ public class MovieServiceImplementacia implements MovieService {
     @Override
     public void deleteMovieByID(Long movieid) {
         movieRepository.deleteById(movieid);
+    }
+
+    @Override
+    public List<MovieDTO> findMovieBySurname(String surname) {
+        return movieRepository.findBySurname(surname)
+                .stream().map(movie -> movieMapper.movieToMovieDTO(movie))
+                .collect(Collectors.toList());
+
     }
 }

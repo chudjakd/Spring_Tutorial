@@ -23,4 +23,6 @@ public interface MovieService {
     MovieDTO updateMovie(MovieDTO moviedto, Long movieId);
 
     void deleteMovieByID(Long movieid);
+
+    List<MovieDTO> findMovieBySurname(String surname);
 }

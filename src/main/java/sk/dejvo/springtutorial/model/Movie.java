@@ -10,7 +10,7 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String surname;
     private String name;
 
     @ManyToMany
@@ -22,10 +22,19 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Long id, String name, Set<Director> directors) {
+    public Movie(Long id, String surname, String name, Set<Director> directors) {
         this.id = id;
+        this.surname = surname;
         this.name = name;
         this.directors = directors;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Long getId() {

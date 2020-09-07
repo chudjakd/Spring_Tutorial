@@ -11,10 +11,20 @@ public class MovieDTO {
 
     private String name;
 
+    private String surname;
+
     Set<Director> directorsofdto= new HashSet<>();
 
 
     public MovieDTO() {
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public Long getId() {

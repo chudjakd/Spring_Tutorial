@@ -17,7 +17,7 @@ public class MovieResourceAssembler implements RepresentationModelAssembler<Movi
                 ,linkTo(methodOn(RestMovieController.class)
                         .getMovieById(movieDTO.getId())).withSelfRel(),
                 linkTo(methodOn(RestMovieController.class)
-                        .getMovies("")).withRel("movies")
+                        .getMovies("","")).withRel("movies")
         ) ;
     }
 }

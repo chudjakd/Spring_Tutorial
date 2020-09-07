@@ -30,8 +30,7 @@ public class RestMovieController {
 //    }
 
 
-    // TODO: 7. 9. 2020 Doplnit do movie dalsi parameter(napr priezvisko) a skusit zobrat z get requestu oba parametre
-    // TODO: 7. 9. 2020 Skusit napisat metodu ktora bude jedna davat zoznam podla mena a druha podla priezviska
+
     @GetMapping("/movies")
     List<MovieDTO> getMovies(@RequestParam(required = false) String name,@RequestParam(required = false) String surname){
 
